@@ -104,11 +104,7 @@ h2.title small{display:block;font-family:var(--script);font-size:.55em;color:var
 .names .amp{display:block;font-family:var(--en);font-style:italic;font-size:.32em;line-height:1;color:var(--rani-l);-webkit-text-fill-color:var(--rani-l)}
 @keyframes shine{to{background-position:-220% center}}
 .en-names{font-family:var(--script);font-size:clamp(28px,4.4vw,38px);color:var(--gold-l);margin-top:-4px}
-.hdate{display:flex;justify-content:center;align-items:center;gap:14px;margin:18px 0 12px;font-family:var(--caps);letter-spacing:.14em}
-.hdate b{font-size:clamp(34px,6vw,48px);font-weight:600;color:#fff3d6;padding:0 16px;border-left:1px solid var(--gold);border-right:1px solid var(--gold);line-height:1}
-.hdate span{font-size:13px;color:var(--gold-l)}
-.janoi-chip{display:inline-block;margin-top:8px;padding:8px 18px;border-radius:30px;background:rgba(240,162,59,.16);border:1px solid rgba(240,162,59,.55);font-size:17px}
-.janoi-chip b{color:var(--marigold)}
+
 
 /* ================= INVITATION LETTERS ================= */
 .letters{display:grid;grid-template-columns:1fr 1fr;gap:26px}
@@ -197,13 +193,6 @@ h2.title small{display:block;font-family:var(--script);font-size:.55em;color:var
 .tahuko .bubble span{display:block;text-align:right;color:var(--rani);font-family:var(--deco);font-size:20px}
 .tahuko h2.title{color:var(--teal-d);margin-bottom:30px}.tahuko h2.title small{color:#fff}
 
-/* ================= FOOTER ================= */
-footer{background:var(--teal-d);color:var(--cream);text-align:center;padding:70px 20px 110px}
-footer .li{font-family:var(--deco);font-size:clamp(26px,5vw,34px);color:var(--marigold)}
-footer p{opacity:.85;margin-top:6px}
-footer .wa{margin-top:24px;background:#1f7a4a;box-shadow:none}
-footer .wa svg{width:18px;height:18px}
-footer .end{margin-top:40px;font-family:var(--script);font-size:34px;color:var(--gold-l)}
 
 /* ================= PETALS / CONTROLS ================= */
 #petals{position:fixed;inset:0;pointer-events:none;z-index:55;overflow:hidden}
@@ -226,8 +215,6 @@ footer .end{margin-top:40px;font-family:var(--script);font-size:34px;color:var(-
   .ev time{font-size:16.5px}
 }
 @media (max-width:420px){
-  .hdate{gap:8px;letter-spacing:.06em}.hdate b{padding:0 10px;font-size:30px}.hdate span{font-size:12px}
-  .janoi-chip{font-size:15.5px;padding:8px 12px}
   body{font-size:19px}
   .ev{gap:10px}.ev-ico{width:38px;height:38px}
   .venue .btn{width:100%;justify-content:center}
@@ -316,9 +303,6 @@ img,svg{max-width:100%}
   .hero-ganesh{width:min(100%,250px)}
   .hero .bless{font-size:15.5px}
   .names{font-size:clamp(58px,17vw,78px)}
-  .hdate{flex-wrap:wrap;gap:6px 10px}
-  .hdate b{font-size:clamp(26px,8vw,32px);padding:0 10px}
-  .janoi-chip{font-size:15px;line-height:1.4;padding:8px 12px}
   .lt p{font-size:17px;line-height:1.75}
   .lt .hi{font-size:clamp(34px,10vw,42px)}
   .lt .tag{font-size:17px;padding:5px 14px}
@@ -360,6 +344,367 @@ img,svg{max-width:100%}
   .hero{min-height:auto}
 }
 
+
+/* =====================================================================
+   NEW SECTIONS · Mehndi · Janoi · Slider · Lagna · Family · Hearts
+   ===================================================================== */
+:root{--henna:#7a3b16;--henna-l:#b5652a;--leaf:#4f6b2a;--leaf-l:#dfe8cf}
+#scrollbar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);z-index:70;
+  background:linear-gradient(90deg,var(--marigold),var(--rani),var(--peacock-l))}
+
+/* split heading: words rise out of a blur */
+.split .w{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);filter:blur(8px);
+  transition:opacity .8s,transform .9s cubic-bezier(.2,.9,.3,1.2),filter .8s;transition-delay:calc(var(--i)*90ms)}
+.split.in .w{opacity:1;transform:none;filter:none}
+.split small{opacity:0;transform:translateY(10px);transition:opacity .8s .5s,transform .8s .5s}
+.split.in small{opacity:1;transform:none}
+
+/* quotes */
+.quote{max-width:640px;margin:34px auto 50px;text-align:center;position:relative;padding:0 30px}
+.quote::before,.quote::after{content:"“";position:absolute;top:-20px;left:0;font-family:var(--script);font-size:80px;line-height:1;color:var(--marigold);opacity:.5}
+.quote::after{content:"”";left:auto;right:0;top:auto;bottom:-56px}
+.quote p{font-family:var(--script);font-size:clamp(28px,4.4vw,40px);line-height:1.35;color:var(--henna)}
+.quote.small p{font-size:clamp(24px,3.6vw,32px)}
+.quote p:nth-child(2){color:var(--rani)}
+
+/* tilt cards */
+.tilt{transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.tilt.in{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+
+/* ---------- Mehndi ---------- */
+.mehndi-sec{background:
+  radial-gradient(circle at 15% 20%,rgba(181,101,42,.08),transparent 40%),
+  radial-gradient(circle at 85% 80%,rgba(79,107,42,.1),transparent 45%),linear-gradient(180deg,#fff8ec,#f6ead2)}
+.mehndi-sec h2.title{color:var(--henna)}
+.mehndi-sec h2.title small{color:var(--leaf)}
+.mehndi-sec .eyebrow{color:var(--leaf)}
+.henna-art{position:absolute;top:50%;width:clamp(90px,14vw,190px);height:auto;transform:translateY(-50%);opacity:.55;pointer-events:none}
+.henna-art.l{left:-10px}.henna-art.r{right:-10px;transform:translateY(-50%) scaleX(-1)}
+.henna-art path,.henna-art circle{fill:none;stroke:var(--henna-l);stroke-width:1.4;stroke-linecap:round;stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);transition:stroke-dashoffset 3.2s ease}
+.mehndi-sec.drawn .henna-art path,.mehndi-sec.drawn .henna-art circle{stroke-dashoffset:0}
+.info-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
+.info-tile{background:#fffdf7;border:1px solid var(--gold-l);border-radius:20px;padding:28px 18px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;
+  box-shadow:0 24px 44px -30px rgba(122,59,22,.55)}
+.it-ico{width:54px;height:54px;border-radius:50%;background:var(--leaf-l);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.it-ico svg{width:26px;height:26px;fill:none;stroke:var(--leaf);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.info-tile small{font-family:var(--caps);font-size:12px;letter-spacing:.24em;color:var(--leaf);text-transform:uppercase}
+.info-tile b{font-size:22px;color:var(--henna);line-height:1.3}
+.info-tile em{color:var(--muted);font-size:17px}
+.btn.sm{min-height:40px;padding:8px 18px;font-size:11.5px;margin-top:12px}
+
+/* ---------- Janoi ---------- */
+.janoi-sec{background:radial-gradient(ellipse at 50% 0%,var(--peacock),var(--teal) 55%,var(--teal-d));color:var(--cream)}
+.janoi-sec h2.title{color:#fff3d6}.janoi-sec h2.title small{color:var(--marigold)}.janoi-sec .eyebrow{color:var(--peacock-l)}
+.janoi-card{position:relative;max-width:680px;margin:70px auto 0;border-radius:30px;padding:90px clamp(18px,5vw,50px) 40px;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:radial-gradient(circle,rgba(255,248,236,.1),rgba(255,248,236,.02) 70%);box-shadow:inset 0 0 0 1px rgba(230,207,149,.35)}
+.threads{position:absolute;left:50%;top:-66px;width:132px;height:132px;margin-left:-66px;animation:spin 40s linear infinite;background:var(--teal);border-radius:50%}
+.threads .t{fill:none;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:553;stroke-dashoffset:553;transition:stroke-dashoffset 2.6s ease}
+.threads .t1{stroke:#f6eedd}.threads .t2{stroke:var(--marigold);transition-delay:.3s}.threads .t3{stroke:#e8c46a;transition-delay:.6s}
+.janoi-card.in .t{stroke-dashoffset:0}
+.jc-inner{position:relative;width:100%}
+.janoi-card::before{content:"";position:absolute;left:50%;top:-34px;width:40px;height:40px;margin-left:-20px;border-radius:50%;z-index:2;background:radial-gradient(circle,#fff3d6 30%,var(--marigold) 32%,var(--marigold) 48%,transparent 50%)}
+.jc-from{font-size:clamp(15px,2vw,18px);line-height:1.6;opacity:.92}
+.jc-from b{color:var(--gold-l);font-weight:600}
+.jc-name{font-family:var(--script);font-size:clamp(56px,10vw,84px);line-height:1.1;margin:8px 0 2px;
+  background:linear-gradient(100deg,#f7d58c,#fff3d6 35%,var(--marigold) 60%,#f7d58c);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+.janoi-sec .quote{margin:4px auto 16px;padding:0 10px}
+.janoi-sec .quote::before,.janoi-sec .quote::after{display:none}
+.janoi-sec .quote p{color:#fff3d6}.janoi-sec .quote p:nth-child(2){color:var(--marigold)}
+.jc-date{display:inline-flex;align-items:center;gap:12px;font-family:var(--caps);letter-spacing:.14em;font-size:13px;color:var(--gold-l)}
+.jc-date b{font-size:40px;line-height:1;color:#fff3d6;padding:0 14px;border-left:1px solid var(--gold);border-right:1px solid var(--gold)}
+.jc-meta{margin-top:8px;font-size:16px;opacity:.85}
+
+/* ---------- Functions slider ---------- */
+.fn-sec{background:linear-gradient(180deg,#fff8ec,#fbefd9);padding-bottom:70px}
+.slider{position:relative;margin-top:8px}
+.slider::before,.slider::after{content:"";position:absolute;top:0;bottom:0;width:clamp(20px,8vw,110px);z-index:2;pointer-events:none}
+.slider::before{left:0;background:linear-gradient(90deg,#fdf4e3,transparent)}
+.slider::after{right:0;background:linear-gradient(-90deg,#fcf2e0,transparent)}
+.track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:30px max(20px,calc(50vw - 160px)) 40px;scrollbar-width:none;cursor:grab}
+.track::-webkit-scrollbar{display:none}
+.track.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.slide{flex:0 0 320px;scroll-snap-align:center;position:relative;border-radius:26px;padding:34px 26px 28px;text-align:center;color:var(--ink);
+  background:#fffdf7;border:1px solid var(--gold-l);box-shadow:0 26px 50px -34px rgba(14,77,75,.6);
+  transform:scale(.86);opacity:.55;filter:saturate(.7);transition:transform .6s cubic-bezier(.2,.9,.3,1.2),opacity .6s,filter .6s,box-shadow .6s;user-select:none}
+.slide.active{transform:scale(1);opacity:1;filter:none;box-shadow:0 34px 60px -30px rgba(194,24,91,.45)}
+.slide::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
+  background:conic-gradient(from var(--ang,0deg),var(--marigold),var(--rani),var(--peacock-l),var(--marigold));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .6s}
+.slide.active::before{opacity:1;animation:ang 6s linear infinite}
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes ang{to{--ang:360deg}}
+.sl-num{position:absolute;top:16px;left:20px;font-family:var(--caps);font-size:13px;color:var(--gold);letter-spacing:.1em}
+.sl-time{position:absolute;top:14px;right:16px;padding:4px 12px;border-radius:20px;background:var(--teal);color:#fff3d6;font-family:var(--caps);font-size:12.5px;letter-spacing:.08em}
+.sl-ico{width:84px;height:84px;margin:18px auto 16px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 35% 30%,#fff3d6,#f6dfae);box-shadow:inset 0 0 0 2px #fffdf7,0 0 0 1px var(--gold-l);color:var(--rani)}
+.sl-ico svg{width:42px;height:42px}
+.slide.active .sl-ico{animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.slide h3{font-family:var(--deco);font-weight:400;font-size:24px;line-height:1.25;color:var(--teal)}
+.slide .who{display:inline-block;margin-top:8px;padding:3px 14px;border-radius:20px;background:rgba(194,24,91,.1);color:var(--rani);font-size:16px;font-weight:600}
+.slide p{margin-top:8px;color:var(--muted);font-size:17px;line-height:1.5}
+.sl-ctrl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:-6px}
+.sl-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--gold);background:#fffdf7;color:var(--teal);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s,transform .3s}
+.sl-btn:hover{background:var(--teal);color:#fff3d6;transform:scale(1.06)}
+.sl-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sl-progress{width:min(40vw,260px);height:3px;border-radius:3px;background:var(--gold-l);overflow:hidden}
+.sl-progress i{display:block;height:100%;width:12.5%;background:linear-gradient(90deg,var(--marigold),var(--rani));transition:width .5s}
+.sl-count{font-family:var(--caps);font-size:14px;color:var(--teal);min-width:46px;text-align:center}
+.venue-map{display:grid;grid-template-columns:1fr 1.3fr;gap:0;margin-top:46px;border-radius:22px;overflow:hidden;border:1px solid var(--gold-l);background:#fffdf7;
+  box-shadow:0 26px 50px -34px rgba(14,77,75,.6)}
+.vm-text{padding:34px 30px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:4px}
+.vm-text small{font-family:var(--caps);font-size:12px;letter-spacing:.22em;color:var(--peacock);text-transform:uppercase}
+.vm-text b{font-family:var(--deco);font-weight:400;font-size:28px;line-height:1.25;color:var(--teal)}
+.vm-text p{color:var(--muted);margin-bottom:12px}
+.vm-map{position:relative;min-height:280px;background:
+  repeating-linear-gradient(0deg,transparent 0 38px,rgba(14,77,75,.07) 38px 40px),repeating-linear-gradient(90deg,transparent 0 38px,rgba(14,77,75,.07) 38px 40px),#e9efe6}
+.vm-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1}
+.vm-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--teal);text-decoration:none;font-family:var(--caps);font-size:13px;letter-spacing:.12em}
+.vm-fallback svg{width:44px;height:44px;fill:var(--rani);stroke:#fff;stroke-width:1.2;animation:bob 2s ease-in-out infinite}
+
+/* ---------- Shubh Lagna ---------- */
+.lagna-sec{background:linear-gradient(135deg,#8e1146,var(--rani) 55%,#d9467a);color:#fff}
+.lagna-sec::before{content:"";position:absolute;inset:0;opacity:.1;background-image:radial-gradient(circle,#fff 1.3px,transparent 2px);background-size:24px 24px}
+.lagna-sec h2.title{color:#fff}.lagna-sec h2.title small{color:#ffd79a}.lagna-sec .eyebrow{color:#ffd79a}
+.lagna-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;align-items:stretch;margin-top:40px}
+.couples,.kids{margin-top:40px}
+.lagna-card{position:relative;overflow:hidden;background:#fffdf7;color:var(--ink);border-radius:24px;padding:40px clamp(20px,4vw,40px) 32px;text-align:center;
+  box-shadow:0 30px 60px -30px rgba(60,0,20,.7)}
+.lagna-card::after{content:"";position:absolute;inset:9px;border:1px solid var(--gold-l);border-radius:17px;pointer-events:none}
+.lagna-card .shine{position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);pointer-events:none}
+.lagna-card.in .shine{animation:sweep 5s ease-in-out 1s infinite}
+@keyframes sweep{0%{left:-60%}35%,100%{left:130%}}
+.lc-quote{font-family:var(--script);font-size:clamp(24px,3.4vw,32px);line-height:1.35;color:var(--rani);margin-bottom:16px}
+.lc-from{font-size:18px;line-height:1.65;color:var(--muted)}
+.lc-from b{color:var(--ink);font-weight:600}
+.lc-names{font-family:var(--script);font-size:clamp(44px,7vw,62px);line-height:1.15;color:var(--teal);margin:12px 0}
+.lc-names i{display:block;font-family:var(--en);font-size:.38em;color:var(--rani)}
+.lc-meta{margin-top:12px;padding-top:12px;border-top:1px dashed var(--gold-l);color:var(--teal);font-weight:600}
+.lagna-events{background:rgba(255,255,255,.1);border:1px solid rgba(255,215,154,.5);border-radius:24px;padding:28px 26px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;flex-direction:column}
+.tl{list-style:none;position:relative;padding-left:28px;flex:1}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:rgba(255,215,154,.45)}
+.tl li{position:relative;padding:10px 0 14px}
+.tl li::before{content:"";position:absolute;left:-26px;top:16px;width:14px;height:14px;border-radius:50%;background:#fff3d6;box-shadow:0 0 0 4px rgba(255,243,214,.25)}
+.tl li.hl::before{background:var(--marigold);animation:pulse2 1.8s ease-in-out infinite}
+@keyframes pulse2{50%{box-shadow:0 0 0 10px rgba(240,162,59,.15)}}
+.tl time{font-family:var(--caps);font-size:13px;letter-spacing:.1em;color:#ffd79a}
+.tl b{display:block;font-size:22px;line-height:1.2}
+.tl span{font-size:16px;opacity:.85}
+.lv{margin-top:10px;padding-top:16px;border-top:1px solid rgba(255,215,154,.4)}
+.lv b{font-size:20px}.lv p{font-size:16px;opacity:.9}
+.lagna-sec .btn{background:#fff3d6;color:var(--rani);box-shadow:none}
+
+/* ---------- Family couples ---------- */
+.fam-sec{background:linear-gradient(180deg,#fff8ec,#fbefd9)}
+.couples{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.couple{position:relative;background:#fffdf7;border:1px solid var(--gold-l);border-radius:18px;padding:24px 18px 20px;text-align:center;overflow:hidden;
+  box-shadow:0 20px 40px -30px rgba(14,77,75,.55);opacity:0;transform:translateY(24px) scale(.96);transition:opacity .7s,transform .7s cubic-bezier(.2,.9,.3,1.2),box-shadow .4s;transition-delay:calc(var(--i)*70ms)}
+.couple.in{opacity:1;transform:none}
+.couple:hover{box-shadow:0 26px 46px -26px rgba(194,24,91,.45)}
+.couple::before{content:"";position:absolute;top:0;left:20%;right:20%;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,var(--marigold),var(--rani))}
+.couple b{display:block;font-size:20px;font-weight:600;line-height:1.35;color:var(--teal)}
+.couple .amp{display:block;font-family:var(--script);font-size:26px;line-height:1.1;color:var(--rani);margin:2px 0}
+.couple span{display:block;font-size:19px;line-height:1.35;color:var(--muted)}
+.couple.late b{color:var(--muted)}
+
+/* ---------- Little hearts ---------- */
+.kids{display:grid;gap:22px;max-width:760px;margin:0 auto}
+.kid{display:flex;align-items:flex-start;gap:14px}
+.kid:nth-child(even){flex-direction:row-reverse}
+.kid-av{flex:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--script);font-size:32px;color:#fff;
+  background:linear-gradient(135deg,var(--rani),#e0457e);box-shadow:0 0 0 4px #fffdf7,0 10px 20px -8px rgba(0,0,0,.4)}
+.kid:nth-child(2) .kid-av{background:linear-gradient(135deg,var(--teal),var(--peacock-l))}
+.kid:nth-child(3) .kid-av{background:linear-gradient(135deg,var(--marigold-d),#f7c25f)}
+.kid .bubble{margin:0;flex:1}
+.kid:nth-child(odd) .bubble{border-radius:6px 26px 26px 26px}
+.kid:nth-child(even) .bubble{border-radius:26px 6px 26px 26px}
+.kid.reveal{transform:translateX(-40px)}.kid:nth-child(even).reveal{transform:translateX(40px)}
+.kid.reveal.in{transform:none}
+
+/* ---------- Big day (last) ---------- */
+.count-sec .sign{text-align:center;margin-top:34px;font-family:var(--script);font-size:clamp(42px,7vw,60px);color:#fff3d6}
+.count-sec .sign span{display:inline-block;color:#ffd79a;animation:beat 1.4s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.15)}}
+.cd b.flip{animation:flip .5s ease}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(90deg);opacity:.3}100%{transform:rotateX(0)}}
+.count-sec{padding:90px 0 110px}
+
+/* ---------- responsive ---------- */
+@media (max-width:820px){
+  .info-row,.lagna-grid,.venue-map{grid-template-columns:1fr}
+  .vm-text{align-items:center;text-align:center}
+  .vm-map{min-height:240px}
+  .henna-art{opacity:.25;width:90px}
+  .janoi-card{padding:80px 14px 30px}
+}
+@media (max-width:480px){
+  .slide{flex-basis:78vw}
+  .track{padding:26px 11vw 34px;gap:14px}
+  .quote{padding:0 14px}
+  .quote::before,.quote::after{font-size:56px}
+  .info-tile b{font-size:20px}
+  .lagna-events{padding:22px 18px}
+  .tl b{font-size:20px}
+  .couple b{font-size:18.5px}.couple span{font-size:17.5px}
+  .kid-av{width:46px;height:46px;font-size:26px}
+  .jc-date b{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){.split .w,.split small,.couple{opacity:1!important;transform:none!important;filter:none!important}
+  .henna-art path,.henna-art circle,.threads .t{stroke-dashoffset:0!important}}
+
+/* =====================================================================
+   v3 · single Mehndi card · Janoi · bento functions · Lagna · names
+   ===================================================================== */
+/* headings: never split or hide words */
+h2.title{line-height:1.25;padding-bottom:.06em;word-break:keep-all;overflow-wrap:normal;hyphens:none;text-wrap:balance}
+h2.title .w{white-space:nowrap}
+h2.title small{line-height:1.35;margin-top:.1em}
+.quote p,.ar-q,.jn-q,.lc-quote{text-wrap:balance;word-break:keep-all;hyphens:none}
+html{scroll-padding-top:76px}
+section[id]{scroll-margin-top:60px}
+
+/* ---------- Mehndi: one card ---------- */
+.m-card{max-width:560px;margin:0 auto;background:#fffdf7;border:1px solid var(--gold-l);border-radius:26px;padding:12px clamp(18px,4vw,34px) 28px;
+  box-shadow:0 30px 60px -34px rgba(122,59,22,.6);position:relative}
+.m-card::before{content:"";position:absolute;inset:8px;border:1px dashed rgba(181,101,42,.35);border-radius:20px;pointer-events:none}
+.m-row{display:flex;align-items:center;gap:16px;padding:18px 4px;border-bottom:1px dashed var(--gold-l);text-align:left}
+.m-row .it-ico{margin:0;flex:none}
+.m-row small{display:block;font-family:var(--caps);font-size:12px;letter-spacing:.22em;color:var(--leaf);text-transform:uppercase}
+.m-row b{display:block;font-size:21px;line-height:1.3;color:var(--henna)}
+.m-row em{display:block;color:var(--muted);font-size:17px}
+.m-btn{display:flex;width:100%;justify-content:center;margin-top:22px;position:relative}
+.m-btn svg{width:16px;height:16px}
+
+/* ---------- Janoi ---------- */
+.janoi2{background:linear-gradient(160deg,#fff4e0,#fde1b8 55%,#f8c98a);}
+.janoi2::before{content:"";position:absolute;inset:0;opacity:.18;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23c26a12' stroke-width='1'%3E%3Ccircle cx='40' cy='40' r='14'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Cpath d='M40 6v8M40 66v8M6 40h8M66 40h8'/%3E%3C/g%3E%3C/svg%3E")}
+.janoi2 .eyebrow{color:#b05a10}
+.janoi2 h2.title{color:#7a2e08}.janoi2 h2.title small{color:var(--rani)}
+.jn{display:grid;grid-template-columns:200px 1fr;max-width:900px;margin:40px auto 0;border-radius:28px;overflow:hidden;background:#fffdf7;
+  box-shadow:0 34px 70px -36px rgba(122,46,8,.6)}
+.jn-date{background:linear-gradient(180deg,#d9822b,#b3470d);color:#fff6e3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:30px 10px;
+  font-family:var(--caps);letter-spacing:.2em;font-size:12.5px;position:relative}
+.jn-date b{font-family:var(--caps);font-size:76px;line-height:1;letter-spacing:0;font-weight:600}
+.jn-date i{width:40px;height:1px;background:rgba(255,246,227,.6);margin:12px 0}
+.jn-time{font-size:15px;letter-spacing:.1em;background:rgba(255,255,255,.18);padding:6px 14px;border-radius:20px}
+.jn-date::after{content:"";position:absolute;right:-12px;top:0;bottom:0;width:24px;
+  background:radial-gradient(circle at 12px 12px,#fffdf7 9px,transparent 10px) 0 0/24px 24px repeat-y}
+.jn-body{padding:40px clamp(22px,5vw,54px) 36px;text-align:center;position:relative}
+.jn-thread{display:block;width:100%;height:40px;margin-bottom:16px}
+.th{fill:none;stroke-width:2;stroke-linecap:round;stroke-dasharray:480;stroke-dashoffset:480;transition:stroke-dashoffset 2.4s ease}
+.th.a{stroke:#e8c46a}.th.b{stroke:#f3efe2;stroke-width:2.6;transition-delay:.25s}.th.c{stroke:#d9822b;transition-delay:.5s}
+.jn.in .th{stroke-dashoffset:0}
+.jn-from{font-size:18px;line-height:1.65;color:var(--muted)}
+.jn-from b{color:#7a2e08;font-weight:600}
+.jn-name{font-family:var(--script);font-size:clamp(62px,10vw,92px);line-height:1.15;margin:10px 0 4px;color:#b3470d}
+.jn-q{font-family:var(--script);font-size:clamp(24px,3.4vw,30px);line-height:1.4;color:var(--rani)}
+.jn-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+.jn-tags span{padding:6px 14px;border-radius:20px;background:#fde9cc;color:#7a2e08;font-size:15.5px}
+
+/* ---------- Functions: bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(170px,auto);gap:16px;margin-top:40px}
+.bx{position:relative;border-radius:22px;padding:22px 20px 20px;color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  box-shadow:0 22px 40px -26px rgba(0,0,0,.5);opacity:0;transform:translateY(30px) scale(.96);
+  transition:opacity .7s,transform .8s cubic-bezier(.2,.9,.3,1.2),box-shadow .4s;transition-delay:calc(var(--i)*80ms)}
+.bento.in .bx{opacity:1;transform:none}
+.bx:hover{transform:translateY(-6px)!important;box-shadow:0 30px 50px -24px rgba(0,0,0,.55)}
+.bx.big{grid-column:span 2;grid-row:span 2;padding:30px 28px 28px}
+.bx::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:24px solid rgba(255,255,255,.08)}
+.bx.teal{background:linear-gradient(150deg,var(--peacock),var(--teal-d))}
+.bx.gold{background:linear-gradient(150deg,#f2b250,#d9822b);color:#3a1d04}
+.bx.sage{background:linear-gradient(150deg,#7d9b6b,#4f6b2a)}
+.bx.haldi{background:linear-gradient(150deg,#ffd84a,#f0a23b 70%);color:#4a2604}
+.bx.rani{background:linear-gradient(150deg,#e0457e,#8e1146)}
+.bx.plum{background:linear-gradient(150deg,#8a6bb8,#4b2a6e)}
+.bx-no{position:absolute;top:18px;right:20px;font-family:var(--caps);font-size:13px;opacity:.7}
+.bx-ico{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:auto}
+.bx.big .bx-ico{width:72px;height:72px;border-radius:20px}
+.bx-ico svg{width:26px;height:26px}.bx.big .bx-ico svg{width:40px;height:40px}
+.bx time{font-family:var(--caps);font-size:13px;letter-spacing:.12em;opacity:.9;margin-top:14px}
+.bx h3{font-family:var(--deco);font-weight:400;font-size:22px;line-height:1.2;word-break:keep-all}
+.bx.big h3{font-size:clamp(28px,3.4vw,38px)}
+.bx .who{align-self:flex-start;margin-top:8px;padding:3px 12px;border-radius:20px;background:rgba(255,255,255,.25);font-size:15.5px;font-weight:600}
+.bx p{margin-top:8px;font-size:17px;opacity:.92;line-height:1.45}
+.bx.big .bx-ico{animation:bob 3s ease-in-out infinite}
+
+@media (min-width:901px){
+  .bento{grid-template-areas:"a b d d" "c e d d" "f f g g" "f f h h";grid-auto-rows:minmax(160px,auto)}
+  .bx:nth-child(1){grid-area:a}.bx:nth-child(2){grid-area:b}.bx:nth-child(3){grid-area:c}.bx:nth-child(4){grid-area:d}
+  .bx:nth-child(5){grid-area:e}.bx:nth-child(6){grid-area:f}.bx:nth-child(7){grid-area:g}.bx:nth-child(8){grid-area:h}
+}
+@media (max-width:900px){.bento{grid-auto-flow:dense}}
+/* ---------- Shubh Lagna ---------- */
+.lagna2{background:radial-gradient(ellipse at 50% 0%,#5c1a3f,#3a0d27 55%,#22061a);color:#fbeedd}
+.mandala-bg{position:absolute;left:50%;top:50%;width:min(140vw,1200px);aspect-ratio:1;transform:translate(-50%,-50%);opacity:.1;pointer-events:none;animation:spin 120s linear infinite;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-100 -100 200 200'%3E%3Cg fill='none' stroke='%23e6cf95' stroke-width='.5'%3E%3Ccircle r='96'/%3E%3Ccircle r='70'/%3E%3Ccircle r='40'/%3E%3Cpath id='p' d='M0-96C12-80 12-62 0-40C-12-62-12-80 0-96Z'/%3E%3Cuse href='%23p' transform='rotate(30)'/%3E%3Cuse href='%23p' transform='rotate(60)'/%3E%3Cuse href='%23p' transform='rotate(90)'/%3E%3Cuse href='%23p' transform='rotate(120)'/%3E%3Cuse href='%23p' transform='rotate(150)'/%3E%3Cuse href='%23p' transform='rotate(180)'/%3E%3Cuse href='%23p' transform='rotate(210)'/%3E%3Cuse href='%23p' transform='rotate(240)'/%3E%3Cuse href='%23p' transform='rotate(270)'/%3E%3Cuse href='%23p' transform='rotate(300)'/%3E%3Cuse href='%23p' transform='rotate(330)'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.lagna2 .eyebrow{color:#e6cf95}
+.lagna2 h2.title{color:#fbeedd}.lagna2 h2.title small{color:var(--marigold)}
+.arch2{position:relative;max-width:620px;margin:44px auto 0;text-align:center;padding:clamp(70px,10vw,96px) clamp(22px,5vw,50px) 40px;
+  border-radius:320px 320px 24px 24px;background:linear-gradient(180deg,#fffaf0,#f8ead2);color:var(--ink);
+  box-shadow:0 0 0 8px rgba(230,207,149,.18),0 0 0 9px rgba(230,207,149,.5),0 40px 80px -30px rgba(0,0,0,.7)}
+.arch2::before{content:"";position:absolute;inset:12px;border:1px solid var(--gold-l);border-radius:310px 310px 16px 16px;pointer-events:none}
+.ar-q{font-family:var(--script);font-size:clamp(24px,3.4vw,30px);line-height:1.4;color:#8e1146;margin-bottom:16px}
+.ar-from{font-size:18px;line-height:1.65;color:var(--muted)}
+.ar-from b{color:var(--ink);font-weight:600}
+.ar-names{margin:14px 0;font-family:var(--script);line-height:1.1;color:#5c1a3f}
+.ar-names span{display:block;font-size:clamp(48px,8vw,70px)}
+.ar-names i{display:block;font-family:var(--en);font-size:22px;color:var(--marigold-d)}
+.ar-meta{margin-top:14px;padding-top:14px;border-top:1px dashed var(--gold-l);color:#5c1a3f;font-weight:600}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:56px auto 0;max-width:900px;position:relative}
+.steps::before{content:"";position:absolute;left:12.5%;right:12.5%;top:11px;height:2px;background:linear-gradient(90deg,transparent,#e6cf95 10%,#e6cf95 90%,transparent)}
+.steps li{text-align:center;padding:0 8px;position:relative}
+.steps .dot{display:block;width:24px;height:24px;margin:0 auto 14px;border-radius:50%;background:#22061a;border:2px solid #e6cf95;position:relative}
+.steps .dot::after{content:"";position:absolute;inset:4px;border-radius:50%;background:#e6cf95}
+.steps li.hl .dot{border-color:var(--marigold);box-shadow:0 0 0 6px rgba(240,162,59,.2);animation:pulse2 1.8s ease-in-out infinite}
+.steps li.hl .dot::after{background:var(--marigold)}
+.steps time{display:block;font-family:var(--caps);font-size:13px;letter-spacing:.1em;color:var(--marigold)}
+.steps b{display:block;font-size:22px;line-height:1.3}
+.steps em{display:block;font-size:16px;opacity:.8}
+.lg-venue{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;max-width:900px;margin:44px auto 0;padding:22px 26px;border-radius:20px;
+  border:1px solid rgba(230,207,149,.45);background:rgba(255,255,255,.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.lg-venue small{font-family:var(--caps);font-size:12px;letter-spacing:.22em;color:#e6cf95;text-transform:uppercase}
+.lg-venue b{display:block;font-size:22px}
+.lg-venue p{opacity:.85;font-size:17px}
+.lagna2 .btn{background:linear-gradient(135deg,#f3d98b,#c9a14a);color:#3a0d27;box-shadow:none}
+
+/* ---------- Little hearts: names only ---------- */
+.kids2{display:flex;justify-content:center;gap:clamp(18px,5vw,50px);flex-wrap:wrap;margin-top:40px}
+.k{display:flex;flex-direction:column;align-items:center;gap:12px}
+.kav{width:clamp(96px,16vw,124px);aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--script);font-size:clamp(52px,8vw,64px);color:#fff;
+  background:linear-gradient(135deg,var(--rani),#e0457e);box-shadow:0 0 0 6px #fffdf7,0 18px 30px -14px rgba(0,0,0,.45);animation:bob 3.2s ease-in-out infinite}
+.k:nth-child(2) .kav{background:linear-gradient(135deg,var(--teal),var(--peacock-l));animation-delay:-1s}
+.k:nth-child(3) .kav{background:linear-gradient(135deg,#8a6bb8,#4b2a6e);animation-delay:-2s}
+.k b{font-family:var(--deco);font-weight:400;font-size:26px;color:var(--teal-d)}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .bx.big{grid-row:span 1}
+}
+@media (max-width:700px){
+  .jn{grid-template-columns:1fr}
+  .jn-date{flex-direction:row;flex-wrap:wrap;gap:6px 12px;padding:18px 14px}
+  .jn-date b{font-size:48px}
+  .jn-date i{display:none}
+  .jn-date::after{right:0;left:0;top:auto;bottom:-12px;width:auto;height:24px;background:radial-gradient(circle at 12px 12px,#fffdf7 9px,transparent 10px) 0 0/24px 24px repeat-x}
+  .jn-body{padding:34px 18px 28px}
+  .steps{grid-template-columns:1fr;gap:20px;max-width:340px;padding-left:40px;text-align:left}
+  .steps::before{left:11px;right:auto;top:6px;bottom:6px;width:2px;height:auto;background:linear-gradient(#e6cf95,#e6cf95)}
+  .steps li{text-align:left;padding:0}
+  .steps .dot{position:absolute;left:-40px;top:2px;margin:0}
+  .lg-venue{flex-direction:column;text-align:center}
+}
+@media (max-width:480px){
+  .bento{grid-template-columns:1fr 1fr;gap:12px;grid-auto-rows:minmax(150px,auto)}
+  .bx{padding:16px 14px}
+  .bx h3{font-size:19px}
+  .bx.big h3{font-size:26px}
+  .bx p{font-size:15.5px}
+  .m-row b{font-size:19px}
+  .arch2{border-radius:200px 200px 20px 20px}.arch2::before{border-radius:190px 190px 14px 14px}
+  .k b{font-size:22px}
+}
 </style>
 </head>
 <body class="locked">
@@ -406,10 +751,11 @@ img,svg{max-width:100%}
 </div>
 
 <nav class="nav" id="nav" aria-label="Sections"><ul>
-  <li><a href="#home">Home</a></li><li><a href="#invite">Invitation</a></li><li><a href="#functions">Functions</a></li>
-  <li><a href="#blessings">Blessings</a></li><li><a href="#family">Family</a></li>
+  <li><a href="#home">Home</a></li><li><a href="#mehndi">Mehndi</a></li><li><a href="#janoi">Janoi</a></li><li><a href="#functions">Functions</a></li>
+  <li><a href="#wedding">Wedding</a></li><li><a href="#family">Family</a></li><li><a href="#bigday">Big Day</a></li>
 </ul></nav>
 
+<div id="scrollbar"></div>
 <div id="petals"></div>
 <div class="ctrls" id="ctrls">
   <button class="ctl" id="musicToggle" aria-label="Music on / off"><span class="bars"><i></i><i></i><i></i><i></i></span></button>
@@ -431,81 +777,126 @@ img,svg{max-width:100%}
       <p class="bless">With the infinite blessings of Param Pujya Shree Jalaram Bapa and our Kuldevi Shree Ashapura Mataji</p>
       <span class="lbl">SHUBH LAGNA</span>
       <h1 class="names">Aastha<span class="amp">weds</span>Jay</h1>
-      <div class="hdate"><span>SATURDAY</span><b>12.12.26</b><span>AHMEDABAD</span></div>
-      <div class="janoi-chip">along with the <b>Yagnopavit Sanskar</b> · Friday, 11.12.2026</div>
+     </div>
+  </div>
+</section>
+
+<!-- ================= MEHNDI ================= -->
+<section class="mehndi-sec" id="mehndi">
+  <svg class="henna-art l" viewBox="0 0 200 400" aria-hidden="true">
+<path d="M190 0 C150 60 150 120 120 170 C95 215 60 240 60 300 C60 340 90 370 120 400"/>
+<path d="M150 95 C120 80 100 95 105 118 C110 138 140 135 140 115 C140 102 125 100 122 112"/>
+<path d="M110 200 C80 185 55 200 62 225 C68 246 100 242 98 220 C97 208 82 206 80 218"/>
+<path d="M75 300 C105 290 125 305 118 328 C112 348 82 344 85 322 C87 310 101 309 102 320"/>
+<path d="M135 150 C160 140 175 150 170 165 C165 178 150 172 152 162"/>
+<path d="M80 260 C55 250 40 262 46 276 C51 288 66 283 64 273"/>
+<path d="M165 40 C180 45 186 58 178 66 M150 60 C135 50 122 55 125 66"/>
+<circle cx="160" cy="80" r="4"/><circle cx="95" cy="160" r="4"/><circle cx="70" cy="245" r="3"/><circle cx="130" cy="360" r="4"/>
+<path d="M60 330 C40 335 30 350 38 362 C46 372 60 365 56 354"/>
+</svg>
+  <svg class="henna-art r" viewBox="0 0 200 400" aria-hidden="true">
+<path d="M190 0 C150 60 150 120 120 170 C95 215 60 240 60 300 C60 340 90 370 120 400"/>
+<path d="M150 95 C120 80 100 95 105 118 C110 138 140 135 140 115 C140 102 125 100 122 112"/>
+<path d="M110 200 C80 185 55 200 62 225 C68 246 100 242 98 220 C97 208 82 206 80 218"/>
+<path d="M75 300 C105 290 125 305 118 328 C112 348 82 344 85 322 C87 310 101 309 102 320"/>
+<path d="M135 150 C160 140 175 150 170 165 C165 178 150 172 152 162"/>
+<path d="M80 260 C55 250 40 262 46 276 C51 288 66 283 64 273"/>
+<path d="M165 40 C180 45 186 58 178 66 M150 60 C135 50 122 55 125 66"/>
+<circle cx="160" cy="80" r="4"/><circle cx="95" cy="160" r="4"/><circle cx="70" cy="245" r="3"/><circle cx="130" cy="360" r="4"/>
+<path d="M60 330 C40 335 30 350 38 362 C46 372 60 365 56 354"/>
+</svg>
+  <div class="wrap">
+    <span class="eyebrow reveal">Thursday · 10 December 2026</span>
+    <h2 class="title split">Mehndi Rasam<small>an evening of henna &amp; joy</small></h2>
+    <blockquote class="quote reveal">
+      <p>Every swirl of henna carries a blessing,</p>
+      <p>and the deeper it blooms, the deeper the love.</p>
+    </blockquote>
+    <div class="m-card reveal">
+      <div class="m-row"><span class="it-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+        <div><small>Date</small><b>Thursday, 10 December 2026</b></div></div>
+      <div class="m-row"><span class="it-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div><small>Time</small><b>5:00 PM onwards</b><em>followed by dinner</em></div></div>
+      <div class="m-row"><span class="it-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+        <div><small>Address</small><b>Ananya Bungalows</b><em>Ahmedabad</em></div></div>
+      <a class="btn m-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Ananya+Bungalows+Ahmedabad" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>View Location</a>
     </div>
   </div>
 </section>
 
-<!-- ================= INVITATION ================= -->
-<section id="invite">
+<!-- ================= JANOI ================= -->
+<section class="janoi2" id="janoi">
   <div class="wrap">
-    <span class="eyebrow reveal">Dear family &amp; friends,</span>
-    <h2 class="title reveal">You Are Invited<small>with love &amp; blessings</small></h2>
-    <div class="orn reveal"><i></i><svg viewBox="0 0 30 30"><path d="M15 2C20 8 20 16 15 22 10 16 10 8 15 2z" fill="#17706a"/><ellipse cx="15" cy="13" rx="3" ry="4.5" fill="#f0a23b"/><path d="M15 22v6" stroke="#c9a14a"/></svg><i></i></div>
-    <div class="letters">
-      <article class="lt wed reveal">
-        <span class="tag">Shubh Lagna</span>
-        <p>With the infinite blessings of Param Pujya Shree Jalaram Bapa and our Kuldevi Shree Ashapura Mataji,
-        <b>Mrs. Bhumikaben</b> &amp; <b>Shri Bhupendrabhai Kanaiyalal Thakkar (Borejawala)</b> joyfully invite you to the wedding of their beloved daughter</p>
-        <span class="hi">Chi. Aastha<i>weds</i>Chi. Jay</span>
-        <p>son of <b>Mrs. Minalben</b> &amp; <b>Shri Hemantbhai Arvindbhai Shah</b>, on Vikram Samvat 2083, Magshar Sud 3,
-        Saturday, 12 December 2026. With God's grace, they begin their journey of married life together.
-        We warmly request you and your family to grace the occasion and bless the newlyweds.</p>
-        <div class="dt">Saturday · 12 December 2026</div>
-      </article>
-      <article class="lt jan reveal">
-        <span class="tag">Yagnopavit Sanskar</span>
-        <p>With the blessings of Param Pujya Shree Jalaram Bapa and our Kuldevi Shree Ashapura Mataji,
-        <b>Mrs. Henaben</b> &amp; <b>Shri Yashkumar Bhupendrabhai Thakkar (Borejawala)</b> invite you to the sacred thread ceremony of their son</p>
-        <span class="hi">Chi. ______<i>Yagnopavit Sanskar</i></span>
-        <p>on Vikram Samvat 2083, Magshar Sud 2, Friday, 11 December 2026.
-        Please join us to make this occasion auspicious and to bless the young batuk.</p>
-        <div class="dt">Friday · 11 December 2026</div>
-      </article>
+    <span class="eyebrow reveal">Yagnopavit Sanskar</span>
+    <h2 class="title split">Janoi<small>the sacred thread ceremony</small></h2>
+    <div class="jn reveal">
+      <aside class="jn-date">
+        <span>FRIDAY</span><b>11</b><span>DECEMBER</span><span>2026</span>
+        <i></i><span class="jn-time">11:15 AM</span>
+      </aside>
+      <div class="jn-body">
+        <svg class="jn-thread" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+          <path class="th a" d="M0 30 C60 5 120 55 200 30 S340 5 400 30"/>
+          <path class="th b" d="M0 34 C60 9 120 59 200 34 S340 9 400 34"/>
+          <path class="th c" d="M0 38 C60 13 120 63 200 38 S340 13 400 38"/>
+        </svg>
+        <p class="jn-from">With the blessings of Param Pujya Shree Jalaram Bapa and our Kuldevi Shree Ashapura Mataji,
+          <b>Mrs. Fena &amp; Shri Yashkumar Bhupendrabhai Thakkar</b> invite you to the Janoi of their son</p>
+        <div class="jn-name">Chi. Rey</div>
+        <p class="jn-q">Three sacred threads, one little heart —<br>a new beginning of wisdom, values and grace.</p>
+        <div class="jn-tags"><span>Magshar Sud 2</span><span>Vikram Samvat 2083</span><span>The Primo, Bopal–Ambli</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= COUNTDOWN ================= -->
-<section class="count-sec">
+<!-- ================= FUNCTIONS (bento) ================= -->
+<section class="fn-sec" id="functions">
   <div class="wrap">
-    <h2 class="title reveal">The Big Day<small>counting the moments</small></h2>
-    <div class="count reveal" aria-live="polite">
-      <div class="cd"><b id="cdD">00</b><small>Days</small></div>
-      <div class="cd"><b id="cdH">00</b><small>Hours</small></div>
-      <div class="cd"><b id="cdM">00</b><small>Minutes</small></div>
-      <div class="cd"><b id="cdS">00</b><small>Seconds</small></div>
+    <span class="eyebrow reveal">Friday · 11 December 2026</span>
+    <h2 class="title split">Functions<small>one auspicious morning</small></h2>
+    <div class="bento"><article class="bx teal" style="--i:0"><span class="bx-no">01</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 3h-4zM7 8h10l-1 6H8zM9 14c0 4 1 6 3 7 2-1 3-3 3-7"/><circle cx="12" cy="11" r="1"/></svg></div><time>7:30 AM</time><h3>Ganesh Sthapana</h3></article><article class="bx gold" style="--i:1"><span class="bx-no">02</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6zM17 11h2a2 2 0 0 1 0 4h-2M8 3c0 2 2 2 2 4M12 3c0 2 2 2 2 4"/></svg></div><time>8:00 AM</time><h3>Breakfast</h3></article><article class="bx sage" style="--i:2"><span class="bx-no">03</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M20 21V10M2 10h20M4 10c2-5 14-5 16 0M9 21l3-5 3 5"/></svg></div><time>8:15 AM</time><h3>Mandap Muhurat</h3></article><article class="bx haldi big" style="--i:3"><span class="bx-no">04</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></div><time>9:00 AM</time><h3>Haldi Ceremony</h3><span class="who">Rey &amp; Aastha</span><p>A golden glow of turmeric, laughter and love.</p></article><article class="bx teal" style="--i:4"><span class="bx-no">05</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6 5 10a5 5 0 0 1-10 0c0-2 1-4 2-5 0 2 1 3 2 3 0-3 0-5 1-8z"/><path d="M5 21h14"/></svg></div><time>10:00 AM</time><h3>Grah Shanti</h3></article><article class="bx rani big" style="--i:5"><span class="bx-no">06</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/><circle cx="12" cy="12" r="2"/></svg></div><time>11:15 AM</time><h3>Yagnopavit Sanskar</h3><span class="who">Chi. Rey</span><p>Rey receives the sacred thread — Janoi.</p></article><article class="bx plum" style="--i:6"><span class="bx-no">07</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12M12 9c-2-4-6-4-6-1 0 1 2 1 6 1zm0 0c2-4 6-4 6-1 0 1-2 1-6 1z"/></svg></div><time>12:00 PM</time><h3>Mameru</h3><span class="who">for Rey</span></article><article class="bx gold" style="--i:7"><span class="bx-no">08</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><circle cx="12" cy="13" r="3.5"/><path d="M4 3v6M20 3c-2 1-2 5 0 6"/></svg></div><time>12:00 PM</time><h3>Lunch</h3></article></div>
+    <div class="venue-map reveal">
+      <div class="vm-text">
+        <small>Venue for all functions</small>
+        <b>The Primo by Mann &amp; Salwa</b>
+        <p>Bopal – Ambli, Ahmedabad</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=The+Primo+by+Mann+and+Salwa+Bopal+Ambli+Ahmedabad" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+      <div class="vm-map">
+        <iframe title="Map – The Primo by Mann & Salwa, Bopal–Ambli" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=The%20Primo%20by%20Mann%20and%20Salwa%2C%20Bopal%20Ambli%2C%20Ahmedabad&amp;z=15&amp;output=embed"></iframe>
+        <a class="vm-fallback" href="https://www.google.com/maps/search/?api=1&amp;query=The+Primo+by+Mann+and+Salwa+Bopal+Ambli+Ahmedabad" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Tap to open the map</a>
+      </div>
     </div>
-    <p class="cd-note reveal" id="cdNote">until the Hastmelap · Saturday, 12 December 2026 · 5:54 PM</p>
   </div>
 </section>
 
-<!-- ================= FUNCTIONS ================= -->
-<section id="functions">
+<!-- ================= SHUBH LAGNA ================= -->
+<section class="lagna2" id="wedding">
+  <div class="mandala-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="eyebrow reveal">Auspicious moments</span>
-    <h2 class="title reveal">Functions<small>our celebrations</small></h2>
-    <div class="orn reveal"><i></i><svg viewBox="0 0 30 30"><path d="M15 2C20 8 20 16 15 22 10 16 10 8 15 2z" fill="#17706a"/><ellipse cx="15" cy="13" rx="3" ry="4.5" fill="#f0a23b"/><path d="M15 22v6" stroke="#c9a14a"/></svg><i></i></div>
-    <div class="days"><article class="day rani reveal" id="day-mehndi">
-    <header class="day-head"><div class="date"><b>10</b><span>DEC</span></div>
-      <div><h3>Thursday</h3><p>Mehndi Ceremony</p></div></header>
-    <ul class="evs"><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-3-2-6-5-6-9 0-2 1-3 2-3s2 1 2 2V5a1 1 0 0 1 2 0v5V4a1 1 0 0 1 2 0v6V5a1 1 0 0 1 2 0v7c1-1 3-1 3 1 0 4-4 6-7 8z"/><circle cx="12" cy="14" r="1.6"/></svg></span><div><b>Mehndi</b><small>Mehndi Rasam</small><span class="note">followed by dinner</span></div><time>5:00 PM onwards</time></li></ul>
-    <div class="venue"><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M20 21V10M2 10h20M4 10c2-5 14-5 16 0M9 21l3-5 3 5"/></svg></span><div><b>Ananya Bungalows</b><p>Ahmedabad</p></div>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Ananya+Bungalows+Ahmedabad" target="_blank" rel="noopener">View Location</a></div>
-  </article><article class="day teal reveal" id="day-janoi">
-    <header class="day-head"><div class="date"><b>11</b><span>DEC</span></div>
-      <div><h3>Friday</h3><p>Magshar Sud 2 · Samvat 2083</p></div></header>
-    <ul class="evs"><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 3h-4zM7 8h10l-1 6H8zM9 14c0 4 1 6 3 7 2-1 3-3 3-7"/><circle cx="12" cy="11" r="1"/></svg></span><div><b>Ganesh Sthapana</b><small>Invoking Lord Ganesha</small></div><time>7:30 AM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M20 21V10M2 10h20M4 10c2-5 14-5 16 0M9 21l3-5 3 5"/></svg></span><div><b>Mandap Muhurat</b><small>Mandap ceremony</small></div><time>8:00 AM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></span><div><b>Pithi</b><small>Haldi ceremony</small></div><time>9:00 AM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6 5 10a5 5 0 0 1-10 0c0-2 1-4 2-5 0 2 1 3 2 3 0-3 0-5 1-8z"/><path d="M5 21h14"/></svg></span><div><b>Grah Shanti</b><small>Prayer for peace</small></div><time>10:00 AM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12M12 9c-2-4-6-4-6-1 0 1 2 1 6 1zm0 0c2-4 6-4 6-1 0 1-2 1-6 1z"/></svg></span><div><b>Mameru</b><small>Gifts from the maternal family</small></div><time>11:15 AM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><circle cx="12" cy="13" r="3.5"/><path d="M4 3v6M20 3c-2 1-2 5 0 6"/></svg></span><div><b>Lunch</b><small>Bhojan samarambh</small></div><time>11:30 AM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/><circle cx="12" cy="12" r="2"/></svg></span><div><b>Yagnopavit Sanskar</b><small>Janoi ceremony</small></div><time>12:39 PM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"/><path d="M11 21l2-6-3-3 2-5 4 3 3 1M10 12l-4 2"/></svg></span><div><b>Batuk Yatra</b><small>Batuk procession</small></div><time>1:30 PM</time></li></ul>
-    <div class="venue"><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M20 21V10M2 10h20M4 10c2-5 14-5 16 0M9 21l3-5 3 5"/></svg></span><div><b>Trimandir</b><p>Sola–Bhagwat Road, Ahmedabad</p></div>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Trimandir+Sola+Bhagwat+Road+Ahmedabad" target="_blank" rel="noopener">View Location</a></div>
-  </article><article class="day gold reveal" id="day-lagna">
-    <header class="day-head"><div class="date"><b>12</b><span>DEC</span></div>
-      <div><h3>Saturday</h3><p>Magshar Sud 3 · Samvat 2083</p></div></header>
-    <ul class="evs"><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l2-8c1-4 6-5 8-3l4-3 1 3-3 3 3 8M8 20v-4M15 20v-4"/></svg></span><div><b>Jaan Aagman</b><small>Arrival of the baraat</small></div><time>5:00 PM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 5l2-2 2 2-2 2z"/></svg></span><div><b>Hastmelap</b><small>The sacred union</small><span class="note">Godhulik – auspicious twilight hour</span></div><time>5:54 PM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><circle cx="12" cy="13" r="3.5"/><path d="M4 3v6M20 3c-2 1-2 5 0 6"/></svg></span><div><b>Dinner</b><small>Suruchi bhojan</small></div><time>7:00 PM</time></li><li class="ev reveal"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h20M7 8c0-3 10-3 10 0M7 8v9h10V8M10 17v3M14 17v3"/></svg></span><div><b>Jaan Vidai</b><small>Farewell</small></div><time>9:30 PM</time></li></ul>
-    <div class="venue"><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M20 21V10M2 10h20M4 10c2-5 14-5 16 0M9 21l3-5 3 5"/></svg></span><div><b>Shreeji Kunj Mandapam</b><p>Opp. Tulip Bungalows, Gulbai Tekra, Ambawadi, Ahmedabad</p></div>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Tulip+Bungalows+Gulbai+Tekra+Ambawadi+Ahmedabad" target="_blank" rel="noopener">View Location</a></div>
-  </article></div>
+    <span class="eyebrow reveal">Saturday · 12 December 2026</span>
+    <h2 class="title split">Shubh Lagna<small>two hearts, one journey</small></h2>
+    <article class="arch2 reveal">
+      <p class="ar-q">Saat pheras, saat vachan&nbsp;— a lifetime of love,<br>written by God and sealed with blessings.</p>
+      <p class="ar-from"><b>Mrs. Jignasha &amp; Shri Bhupendrabhai Kanaiyalal Thakkar</b><br>joyfully invite you to the wedding of their beloved daughter</p>
+      <div class="ar-names"><span>Chi. Aastha</span><i>with</i><span>Chi. Jay</span></div>
+      <p class="ar-from">son of <b>Mrs. Minalben &amp; Shri Hemantbhai Arvindbhai Shah</b></p>
+      <p class="ar-meta">Magshar Sud 3 · Vikram Samvat 2083</p>
+    </article>
+    <ol class="steps reveal">
+      <li><span class="dot"></span><time>5:00 PM</time><b>Jaan Aagman</b><em>Arrival of the baraat</em></li>
+      <li class="hl"><span class="dot"></span><time>5:54 PM</time><b>Hastmelap</b><em>Godhulik lagna</em></li>
+      <li><span class="dot"></span><time>7:00 PM</time><b>Dinner</b><em>Suruchi bhojan</em></li>
+      <li><span class="dot"></span><time>9:30 PM</time><b>Jaan Vidai</b><em>A tender farewell</em></li>
+    </ol>
+    <div class="lg-venue reveal">
+      <div><small>Venue</small><b>Shreeji Kunj Mandapam</b><p>Opp. Tulip Bungalows, Gulbai Tekra, Ambawadi, Ahmedabad</p></div>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Shreeji+Kunj+Mandapam+Gulbai+Tekra+Ambawadi+Ahmedabad" target="_blank" rel="noopener">View Location</a>
+    </div>
   </div>
 </section>
 
@@ -534,34 +925,44 @@ img,svg{max-width:100%}
 </section>
 
 <!-- ================= FAMILY ================= -->
-<section id="family">
+<section class="fam-sec" id="family">
   <div class="wrap">
     <span class="eyebrow reveal">With best compliments</span>
-    <h2 class="title reveal">With Love<small>our family</small></h2>
-    <div class="orn reveal"><i></i><svg viewBox="0 0 30 30"><path d="M15 2C20 8 20 16 15 22 10 16 10 8 15 2z" fill="#17706a"/><ellipse cx="15" cy="13" rx="3" ry="4.5" fill="#f0a23b"/><path d="M15 22v6" stroke="#c9a14a"/></svg><i></i></div>
-    <div class="fam reveal">
-      <h3>Thakkar Family (Borejawala)</h3>
-      <div class="cols"><ul><li><b>Mrs. Bhumikaben Bhupendrabhai Thakkar</b></li><li><b>Smt. Anjanaben Hemantbhai Thakkar</b></li><li><b>Mrs. Yogitaben Jitendrabhai Thakkar</b></li><li><b>Mrs. Chandni Savan Thakkar</b></li><li><b>Mrs. Hena Yash Thakkar</b></li><li><b>Mrs. Vrunda Johil Thakkar</b></li><li><b>Mrs. Nirali Vivek Thakkar</b></li></ul><ul><li><b>Shri Bhupendrabhai Kanaiyalal Thakkar</b></li><li><b>Late Hemantbhai Kanaiyalal Thakkar</b></li><li><b>Shri Jitendrabhai Kanaiyalal Thakkar</b></li><li><b>Shri Savan Hemantbhai Thakkar</b></li><li><b>Shri Yash Bhupendrabhai Thakkar</b></li><li><b>Shri Johil Hareshbhai Thakkar</b></li><li><b>Shri Vivek Jitendrabhai Thakkar</b></li><li><b>Shri Hiten Jitendrabhai Thakkar</b></li></ul></div>
+    <h2 class="title split">With Love<small>the Thakkar family</small></h2>
+    <div class="couples">
+      <div class="couple " style="--i:0"><b>Shri Bhupendrabhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Mrs. Jignasha Bhupendrabhai Thakkar</span></div><div class="couple late" style="--i:1"><b>Late Hemantbhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Smt. Anjanaben Hemantbhai Thakkar</span></div><div class="couple " style="--i:2"><b>Shri Jitendrabhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Mrs. Yogitaben Jitendrabhai Thakkar</span></div><div class="couple " style="--i:3"><b>Shri Savan Hemantbhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Chandni Savan Thakkar</span></div><div class="couple " style="--i:4"><b>Shri Yash Bhupendrabhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Fena Yash Thakkar</span></div><div class="couple " style="--i:5"><b>Shri Johil Hareshbhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Vrunda Johil Thakkar</span></div><div class="couple " style="--i:6"><b>Shri Vivek Jitendrabhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Nirali Vivek Thakkar</span></div><div class="couple " style="--i:7"><b>Shri Hiten Jitendrabhai Thakkar</b></div>
     </div>
   </div>
 </section>
 
-<!-- ================= TAHUKO ================= -->
-<section class="tahuko">
+<!-- ================= LITTLE HEARTS ================= -->
+<section class="tahuko" id="hearts">
   <div class="wrap">
-    <h2 class="title reveal">Little Hearts<small>a sweet request</small></h2>
-    <div class="bubble reveal"><p>Please do come to my Foi's wedding…</p><span>— Re…, Kavya, Hriday</span></div>
-    <div class="bubble reveal"><p>Please do come to my Masi's wedding…</p><span>— Shravi</span></div>
+    <h2 class="title split">Little Hearts<small>waiting to welcome you</small></h2>
+    <div class="kids2">
+      <div class="k reveal"><span class="kav">R</span><b>Rey</b></div>
+      <div class="k reveal"><span class="kav">J</span><b>Jagjivan</b></div>
+      <div class="k reveal"><span class="kav">H</span><b>Hriday</b></div>
+    </div>
   </div>
 </section>
-</main>
 
-<footer>
-  <div class="li reveal">Thakkar Family</div>
-  <p class="reveal">(Borejawala) · Ahmedabad</p>
-  <a class="btn wa reveal" id="waShare" href="https://wa.me/?text=" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2z"/></svg>Share on WhatsApp</a>
-  <div class="end reveal">Aastha ♥ Jay</div>
-</footer>
+<!-- ================= THE BIG DAY ================= -->
+<section class="count-sec" id="bigday">
+  <div class="wrap">
+    <h2 class="title split">The Big Day<small>counting the moments</small></h2>
+    <div class="count reveal" aria-live="polite">
+      <div class="cd"><b id="cdD">00</b><small>Days</small></div>
+      <div class="cd"><b id="cdH">00</b><small>Hours</small></div>
+      <div class="cd"><b id="cdM">00</b><small>Minutes</small></div>
+      <div class="cd"><b id="cdS">00</b><small>Seconds</small></div>
+    </div>
+    <p class="cd-note reveal" id="cdNote">until the Hastmelap · Saturday, 12 December 2026 · 5:54 PM</p>
+    <p class="sign reveal">Aastha <span>♥</span> Jay</p>
+  </div>
+</section>
+
+</main>
 
 <script>
 (function(){
@@ -611,17 +1012,45 @@ img,svg{max-width:100%}
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const links=[...document.querySelectorAll('.nav a')];
   const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}),{rootMargin:'-45% 0px -50% 0px'});
-  ['home','invite','functions','blessings','family'].forEach(id=>so.observe(document.getElementById(id)));
-
-  /* WhatsApp */
-  const url=location.protocol.startsWith('http')?location.href.split('#')[0]:'';
-  document.getElementById('waShare').href='https://wa.me/?text='+encodeURIComponent('॥ Shree Ganeshay Namah ॥\nYou are warmly invited to the wedding of Aastha & Jay\nSaturday, 12 December 2026 · Ahmedabad'+(url?'\n'+url:''));
+  ['home','mehndi','janoi','functions','wedding','family','bigday'].forEach(id=>{const el=document.getElementById(id);if(el)so.observe(el);});
 
   /* countdown to Hastmelap (IST) */
   const T=new Date('2026-12-12T17:54:00+05:30').getTime(),p=n=>String(n).padStart(2,'0');
   function tick(){let d=T-Date.now();if(d<=0){d=0;document.getElementById('cdNote').textContent='Happily married — thank you for your blessings';}
-    const s=Math.floor(d/1000);cdD.textContent=p(Math.floor(s/86400));cdH.textContent=p(Math.floor(s%86400/3600));cdM.textContent=p(Math.floor(s%3600/60));cdS.textContent=p(s%60);}
+    const s=Math.floor(d/1000);[[cdD,Math.floor(s/86400)],[cdH,Math.floor(s%86400/3600)],[cdM,Math.floor(s%3600/60)],[cdS,s%60]].forEach(([el,v])=>{const t=p(v);if(el.textContent!==t){el.textContent=t;el.classList.remove('flip');void el.offsetWidth;el.classList.add('flip');}});}
   tick();setInterval(tick,1000);
+
+  /* ---------- split headings ---------- */
+  document.querySelectorAll('.split').forEach(h=>{
+    const sm=h.querySelector('small');const txt=[...h.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').trim();
+    [...h.childNodes].filter(n=>n.nodeType===3).forEach(n=>n.remove());
+    const frag=document.createDocumentFragment();
+    txt.split(/\s+/).forEach((w,i)=>{const s=document.createElement('span');s.className='w';s.style.setProperty('--i',i);s.textContent=w;frag.appendChild(s);frag.appendChild(document.createTextNode(' '));});
+    h.insertBefore(frag,sm);
+    io.observe(h);
+  });
+  document.querySelectorAll('.couple').forEach(el=>io.observe(el));
+  const hs=document.getElementById('mehndi');
+  hs.querySelectorAll('.henna-art path,.henna-art circle').forEach(p=>{try{p.style.setProperty('--len',Math.ceil(p.getTotalLength()))}catch(e){}});
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){hs.classList.add('drawn');o.disconnect();}}),{threshold:.25}).observe(hs);
+
+  /* ---------- scroll progress ---------- */
+  const bar=document.getElementById('scrollbar');
+  addEventListener('scroll',()=>{const h=document.documentElement;bar.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight||1))+')';},{passive:true});
+
+  /* ---------- tilt ---------- */
+  if(matchMedia('(hover:hover)').matches&&!reduce){
+    document.querySelectorAll('.tilt').forEach(c=>{
+      c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*10+'deg');c.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*8+'deg');});
+      c.addEventListener('pointerleave',()=>{c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');});
+    });
+  }
+
+  document.querySelectorAll('.bento,.jn').forEach(el=>io.observe(el));
+
+  /* map: hide fallback once iframe loads */
+  const ifr=document.querySelector('.vm-map iframe');
+  if(location.protocol.startsWith('http')&&!/claude|anthropic/.test(location.hostname)){ifr.addEventListener('load',()=>{});}else{ifr.remove();}
 })();
 </script>
 </body>
