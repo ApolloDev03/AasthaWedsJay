@@ -617,7 +617,6 @@ section[id]{scroll-margin-top:60px}
 .bx.haldi{background:linear-gradient(150deg,#ffd84a,#f0a23b 70%);color:#4a2604}
 .bx.rani{background:linear-gradient(150deg,#e0457e,#8e1146)}
 .bx.plum{background:linear-gradient(150deg,#8a6bb8,#4b2a6e)}
-.bx-no{position:absolute;top:18px;right:20px;font-family:var(--caps);font-size:13px;opacity:.7}
 .bx-ico{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:auto}
 .bx.big .bx-ico{width:72px;height:72px;border-radius:20px}
 .bx-ico svg{width:26px;height:26px}.bx.big .bx-ico svg{width:40px;height:40px}
@@ -651,8 +650,8 @@ section[id]{scroll-margin-top:60px}
 .ar-names span{display:block;font-size:clamp(48px,8vw,70px)}
 .ar-names i{display:block;font-family:var(--en);font-size:22px;color:var(--marigold-d)}
 .ar-meta{margin-top:14px;padding-top:14px;border-top:1px dashed var(--gold-l);color:#5c1a3f;font-weight:600}
-.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:56px auto 0;max-width:900px;position:relative}
-.steps::before{content:"";position:absolute;left:12.5%;right:12.5%;top:11px;height:2px;background:linear-gradient(90deg,transparent,#e6cf95 10%,#e6cf95 90%,transparent)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:56px auto 0;max-width:1000px;position:relative}
+.steps::before{content:"";position:absolute;left:10%;right:10%;top:11px;height:2px;background:linear-gradient(90deg,transparent,#e6cf95 10%,#e6cf95 90%,transparent)}
 .steps li{text-align:center;padding:0 8px;position:relative}
 .steps .dot{display:block;width:24px;height:24px;margin:0 auto 14px;border-radius:50%;background:#22061a;border:2px solid #e6cf95;position:relative}
 .steps .dot::after{content:"";position:absolute;inset:4px;border-radius:50%;background:#e6cf95}
@@ -705,7 +704,35 @@ section[id]{scroll-margin-top:60px}
   .arch2{border-radius:200px 200px 20px 20px}.arch2::before{border-radius:190px 190px 14px 14px}
   .k b{font-size:22px}
 }
+
+/* v4 additions */
+.jn-cal{font-size:12px;letter-spacing:.12em;line-height:1.6;text-align:center}
+.jn-venue{margin-top:18px;font-size:17px;color:#7a2e08;font-weight:600}
+.jn-btn{margin-top:12px;background:#b3470d;box-shadow:0 10px 22px -12px rgba(179,71,13,.8)}
+.jn-btn:hover{background:#933a0b}
+.lg-venue .sub-v{font-weight:400;font-size:.8em;opacity:.85;white-space:nowrap}
+.mehndi-sec .quote{margin-top:22px}
+@media (max-width:700px){.jn-date .jn-cal{flex-basis:auto}.jn-date i{display:none}}
+
+/* ===== readable fonts ===== */
+:root{--gu:'Lora',Georgia,serif;--en:'Lora',Georgia,serif;--deco:'Marcellus',Georgia,serif;--caps:'Marcellus',Georgia,serif;--script:'Playfair Display',Georgia,serif}
+body{font-size:19px;line-height:1.7}
+.names,.jn-name,.ar-names span,.quote p,.jn-q,.ar-q,h2.title small,.en-names,.sign,.lt .hi,.env .letter b,.kav,.names .amp{font-style:italic}
+h2.title{font-weight:400;letter-spacing:.01em}
+h2.title small{font-size:.46em;font-weight:400}
+.names{font-weight:500;letter-spacing:-.01em}
+.quote p{font-size:clamp(23px,3.4vw,32px);font-weight:400}
+.jn-q,.ar-q{font-size:clamp(20px,2.8vw,26px)}
+.jn-name{font-size:clamp(52px,8vw,76px);font-weight:500}
+.ar-names span{font-size:clamp(40px,6.5vw,58px);font-weight:500}
+.eyebrow,.sl-time,.bx time,.steps time,.tl time{letter-spacing:.16em}
+.bx h3,.slide h3{font-weight:400}
+.arch2{padding-top:clamp(90px,13vw,124px)}
+.ar-q{max-width:470px;margin-left:auto;margin-right:auto}
+.jn-date .jn-cal+.jn-cal{margin-top:-2px}
+@media (max-width:700px){.jn-date{row-gap:2px}.jn-date .jn-cal{width:100%}}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
 </head>
 <body class="locked">
 
@@ -807,7 +834,6 @@ section[id]{scroll-margin-top:60px}
 </svg>
   <div class="wrap">
     <span class="eyebrow reveal">Thursday · 10 December 2026</span>
-    <h2 class="title split">Mehndi Rasam<small>an evening of henna &amp; joy</small></h2>
     <blockquote class="quote reveal">
       <p>Every swirl of henna carries a blessing,</p>
       <p>and the deeper it blooms, the deeper the love.</p>
@@ -834,6 +860,7 @@ section[id]{scroll-margin-top:60px}
       <aside class="jn-date">
         <span>FRIDAY</span><b>11</b><span>DECEMBER</span><span>2026</span>
         <i></i><span class="jn-time">11:15 AM</span>
+        <i></i><span class="jn-cal">Vikram Samvat 2083</span><span class="jn-cal">Magshar Sud 2</span>
       </aside>
       <div class="jn-body">
         <svg class="jn-thread" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
@@ -842,10 +869,12 @@ section[id]{scroll-margin-top:60px}
           <path class="th c" d="M0 38 C60 13 120 63 200 38 S340 13 400 38"/>
         </svg>
         <p class="jn-from">With the blessings of Param Pujya Shree Jalaram Bapa and our Kuldevi Shree Ashapura Mataji,
-          <b>Mrs. Fena &amp; Shri Yashkumar Bhupendrabhai Thakkar</b> invite you to the Janoi of their son</p>
+          <b>Mrs. Fena &amp; Shri Yash Thakkar</b> invite you to the Janoi of their son</p>
         <div class="jn-name">Chi. Rey</div>
         <p class="jn-q">Three sacred threads, one little heart —<br>a new beginning of wisdom, values and grace.</p>
-        <div class="jn-tags"><span>Magshar Sud 2</span><span>Vikram Samvat 2083</span><span>The Primo, Bopal–Ambli</span></div>
+        <p class="jn-venue">The Primo by Mann &amp; Salwa · Bopal–Ambli, Ahmedabad</p>
+        <a class="btn jn-btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=The+Primo+by+Mann+and+Salwa+Bopal+Ambli+Ahmedabad" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>View Location</a>
       </div>
     </div>
   </div>
@@ -856,7 +885,7 @@ section[id]{scroll-margin-top:60px}
   <div class="wrap">
     <span class="eyebrow reveal">Friday · 11 December 2026</span>
     <h2 class="title split">Functions<small>one auspicious morning</small></h2>
-    <div class="bento"><article class="bx teal" style="--i:0"><span class="bx-no">01</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 3h-4zM7 8h10l-1 6H8zM9 14c0 4 1 6 3 7 2-1 3-3 3-7"/><circle cx="12" cy="11" r="1"/></svg></div><time>7:30 AM</time><h3>Ganesh Sthapana</h3></article><article class="bx gold" style="--i:1"><span class="bx-no">02</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6zM17 11h2a2 2 0 0 1 0 4h-2M8 3c0 2 2 2 2 4M12 3c0 2 2 2 2 4"/></svg></div><time>8:00 AM</time><h3>Breakfast</h3></article><article class="bx sage" style="--i:2"><span class="bx-no">03</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M20 21V10M2 10h20M4 10c2-5 14-5 16 0M9 21l3-5 3 5"/></svg></div><time>8:15 AM</time><h3>Mandap Muhurat</h3></article><article class="bx haldi big" style="--i:3"><span class="bx-no">04</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></div><time>9:00 AM</time><h3>Haldi Ceremony</h3><span class="who">Rey &amp; Aastha</span><p>A golden glow of turmeric, laughter and love.</p></article><article class="bx teal" style="--i:4"><span class="bx-no">05</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6 5 10a5 5 0 0 1-10 0c0-2 1-4 2-5 0 2 1 3 2 3 0-3 0-5 1-8z"/><path d="M5 21h14"/></svg></div><time>10:00 AM</time><h3>Grah Shanti</h3></article><article class="bx rani big" style="--i:5"><span class="bx-no">06</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/><circle cx="12" cy="12" r="2"/></svg></div><time>11:15 AM</time><h3>Yagnopavit Sanskar</h3><span class="who">Chi. Rey</span><p>Rey receives the sacred thread — Janoi.</p></article><article class="bx plum" style="--i:6"><span class="bx-no">07</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12M12 9c-2-4-6-4-6-1 0 1 2 1 6 1zm0 0c2-4 6-4 6-1 0 1-2 1-6 1z"/></svg></div><time>12:00 PM</time><h3>Mameru</h3><span class="who">for Rey</span></article><article class="bx gold" style="--i:7"><span class="bx-no">08</span><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><circle cx="12" cy="13" r="3.5"/><path d="M4 3v6M20 3c-2 1-2 5 0 6"/></svg></div><time>12:00 PM</time><h3>Lunch</h3></article></div>
+    <div class="bento"><article class="bx teal" style="--i:0"><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 3h-4zM7 8h10l-1 6H8zM9 14c0 4 1 6 3 7 2-1 3-3 3-7"/><circle cx="12" cy="11" r="1"/></svg></div><time>7:30 AM</time><h3>Ganesh Sthapana</h3></article><article class="bx gold" style="--i:1"><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6zM17 11h2a2 2 0 0 1 0 4h-2M8 3c0 2 2 2 2 4M12 3c0 2 2 2 2 4"/></svg></div><time>8:00 AM</time><h3>Breakfast</h3></article><article class="bx sage" style="--i:2"><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M20 21V10M2 10h20M4 10c2-5 14-5 16 0M9 21l3-5 3 5"/></svg></div><time>8:15 AM</time><h3>Mandap Muhurat</h3></article><article class="bx haldi big" style="--i:3"><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></div><time>9:00 AM</time><h3>Haldi Ceremony</h3><span class="who">Rey &amp; Aastha</span><p>A golden glow of turmeric, laughter and love.</p></article><article class="bx teal" style="--i:4"><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6 5 10a5 5 0 0 1-10 0c0-2 1-4 2-5 0 2 1 3 2 3 0-3 0-5 1-8z"/><path d="M5 21h14"/></svg></div><time>10:00 AM</time><h3>Grah Shanti</h3></article><article class="bx rani big" style="--i:5"><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/><circle cx="12" cy="12" r="2"/></svg></div><time>11:15 AM</time><h3>Yagnopavit Sanskar</h3><span class="who">Chi. Rey</span><p>Rey receives the sacred thread — Janoi.</p></article><article class="bx plum" style="--i:6"><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12M12 9c-2-4-6-4-6-1 0 1 2 1 6 1zm0 0c2-4 6-4 6-1 0 1-2 1-6 1z"/></svg></div><time>12:00 PM</time><h3>Mameru</h3><span class="who">for Rey</span></article><article class="bx gold" style="--i:7"><div class="bx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><circle cx="12" cy="13" r="3.5"/><path d="M4 3v6M20 3c-2 1-2 5 0 6"/></svg></div><time>12:00 PM</time><h3>Lunch</h3></article></div>
     <div class="venue-map reveal">
       <div class="vm-text">
         <small>Venue for all functions</small>
@@ -888,14 +917,15 @@ section[id]{scroll-margin-top:60px}
       <p class="ar-meta">Magshar Sud 3 · Vikram Samvat 2083</p>
     </article>
     <ol class="steps reveal">
+      <li><span class="dot"></span><time>4:15 PM</time><b>Mameru</b><em>Blessings from the maternal family</em></li>
       <li><span class="dot"></span><time>5:00 PM</time><b>Jaan Aagman</b><em>Arrival of the baraat</em></li>
       <li class="hl"><span class="dot"></span><time>5:54 PM</time><b>Hastmelap</b><em>Godhulik lagna</em></li>
       <li><span class="dot"></span><time>7:00 PM</time><b>Dinner</b><em>Suruchi bhojan</em></li>
       <li><span class="dot"></span><time>9:30 PM</time><b>Jaan Vidai</b><em>A tender farewell</em></li>
     </ol>
     <div class="lg-venue reveal">
-      <div><small>Venue</small><b>Shreeji Kunj Mandapam</b><p>Opp. Tulip Bungalows, Gulbai Tekra, Ambawadi, Ahmedabad</p></div>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Shreeji+Kunj+Mandapam+Gulbai+Tekra+Ambawadi+Ahmedabad" target="_blank" rel="noopener">View Location</a>
+      <div><small>Venue</small><b>650 Lawn <span class="sub-v">(Shreeji Kunj Mandapam)</span></b><p>Opp. Tulip Bungalows, Gulbai Tekra, Ambawadi, Ahmedabad</p></div>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=650+Lawn+Shreeji+Kunj+Mandapam+Gulbai+Tekra+Ambawadi+Ahmedabad" target="_blank" rel="noopener">View Location</a>
     </div>
   </div>
 </section>
@@ -930,7 +960,7 @@ section[id]{scroll-margin-top:60px}
     <span class="eyebrow reveal">With best compliments</span>
     <h2 class="title split">With Love<small>the Thakkar family</small></h2>
     <div class="couples">
-      <div class="couple " style="--i:0"><b>Shri Bhupendrabhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Mrs. Jignasha Bhupendrabhai Thakkar</span></div><div class="couple late" style="--i:1"><b>Late Hemantbhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Smt. Anjanaben Hemantbhai Thakkar</span></div><div class="couple " style="--i:2"><b>Shri Jitendrabhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Mrs. Yogitaben Jitendrabhai Thakkar</span></div><div class="couple " style="--i:3"><b>Shri Savan Hemantbhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Chandni Savan Thakkar</span></div><div class="couple " style="--i:4"><b>Shri Yash Bhupendrabhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Fena Yash Thakkar</span></div><div class="couple " style="--i:5"><b>Shri Johil Hareshbhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Vrunda Johil Thakkar</span></div><div class="couple " style="--i:6"><b>Shri Vivek Jitendrabhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Nirali Vivek Thakkar</span></div><div class="couple " style="--i:7"><b>Shri Hiten Jitendrabhai Thakkar</b></div>
+      <div class="couple " style="--i:0"><b>Shri Bhupendrabhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Mrs. Jignasha Bhupendrabhai Thakkar</span></div><div class="couple late" style="--i:1"><b>Late Hemantbhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Smt. Anjanaben Hemantbhai Thakkar</span></div><div class="couple " style="--i:2"><b>Shri Jitendrabhai Kanaiyalal Thakkar</b><span class="amp">&amp;</span><span>Mrs. Yogitaben Jitendrabhai Thakkar</span></div><div class="couple " style="--i:3"><b>Shri Savan Hemantbhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Chandni Savan Thakkar</span></div><div class="couple " style="--i:4"><b>Shri Yash Bhupendrabhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Fena Yash Thakkar</span></div><div class="couple " style="--i:5"><b>Shri Johil Hareshbhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Vrunda Johil Thakkar</span></div><div class="couple " style="--i:6"><b>Shri Vivek Jitendrabhai Thakkar</b><span class="amp">&amp;</span><span>Mrs. Nirali Vivek Thakkar</span></div><div class="couple " style="--i:7"><b>Shri kirtan Jitendrabhai Thakkar</b></div>
     </div>
   </div>
 </section>
